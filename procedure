@@ -1,0 +1,27 @@
+ova app sluzi za probu vs code kao zamene za eclipse koji sam dosad koristio - konkretno za razvoj spring boot app
+cilj je da se ispita vs code kao kompletan alat koji ce zameniti sve tj. biti jedini alat za celokupan razvoj app (back i front)
+(dosad je backend npr. spring boot radjen u eclipse , a frontend npr. angular u vs code )
+
+cilj
+
+napraviti prostu blog app za (poenta je u ovladavanju alatima , a ne u samoj app) 
+
+vs code dolazi sa podrskom za razvoj frontend (konkretno angulara) , ali za javu i spring boot nema podrske
+
+zato je prvi korak instalacija ekstenzija vs code za podrsku jave i spring boot - instalirao sam java extension pack i 
+spring boot extension pack ( oba se sastoje iz svih potrbnih ekstenzija kumulativno skupljenih u packove)
+
+vs code dolazi sa podrskom za git - github svc pa cu to koristiti
+
+sada je vs code spreman - ima sve instalisano i startna procedura je sledeca 
+
+1 napravimo spring boot project - iz command palette (ctrl+shift+p) komanda je spring initializr generate maven project 
+  sto ce napraviti projekt u folderu koji smo izabrali 
+
+2 opet ctrl+shift+p i sledeca komanda je  git initialize repository sto ce ceo folder ukljuciti u svc (lokalno) 
+
+3 opet ctrl+shift+p i sledeca komanda je  git add remote ( naziv remota origin , a url copy prethodno napravljenog repa na github)
+
+4 radimo na projektu , a svc koristimo klasicno ( stage , commit pa push to..) kad nesto bacamo na github , odnosno pull from .. kad 
+  svlacimo sa remota ( uvek treba sa vremena na vreme svuci - da bi local i remote bili uskladjeni )
+
