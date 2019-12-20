@@ -4,7 +4,7 @@ cilj je da se ispita vs code kao kompletan alat koji ce zameniti sve tj. biti je
 
 cilj
 
-napraviti prostu blog app za (poenta je u ovladavanju alatima , a ne u samoj app) 
+napraviti prostu blog app  (poenta je u ovladavanju alatima , a ne u samoj app) 
 
 vs code dolazi sa podrskom za razvoj frontend (konkretno angulara) , ali za javu i spring boot nema podrske
 
