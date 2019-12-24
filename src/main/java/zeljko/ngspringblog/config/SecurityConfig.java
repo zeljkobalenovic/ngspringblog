@@ -45,7 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll().anyRequest()
                 .authenticated()
-                // mora se ovo dodati inace ce jednom kad prodje sa jwt posle prolaziti i bez jwt sto necemo
+                // mora se ovo dodati inace ce jednom kad prodje sa jwt posle prolaziti i bez jwt sto necemo tj.
+                // moramo spreciti pravljenje i koriscenje sesija 
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         httpSecurity.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);        

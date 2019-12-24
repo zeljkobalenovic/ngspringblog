@@ -1,6 +1,8 @@
 package zeljko.ngspringblog.service;
 
+import java.security.Principal;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -75,9 +77,7 @@ import zeljko.ngspringblog.repository.UserRepository;
         Authentication authentication = authenticationManager.authenticate(uToken);
 
         // za dalje koriscenje ovako cuvamo authentication objekat 
-        // VAZNO - kod varijante sa jwt tokenom NESMEMO da sacuvamo authentication jer bi onda prolazilo sve slali mi ili ne jwt token
-        
-        // SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         // ako smo stigli dovde nije bacen authentication exception pa mozemo pristupiti kreiranju tokena 
         // u praksi ovde ide try catch da vidimo sta ne valja (koji authentication exception je bacen ) pa da obavestimo usera
@@ -112,5 +112,18 @@ import zeljko.ngspringblog.repository.UserRepository;
         return new AuthenticationResponse(jwt,username);
 
     }
+
+	public String getUsername() {
+        // vraca trenutno logovanog usernamea ako ga ima ili null ako ga nema
+        // ako ima logovanog usera onda je principal tipa userdetails , ako nema onda je string pa vracamo null          
+        
+        if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().getClass().getSimpleName().equals("MyUserDetails")){
+                UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();      
+                         return userDetails.getUsername();
+        }
+        return null;  
+             
+               
+	}
     
 }
