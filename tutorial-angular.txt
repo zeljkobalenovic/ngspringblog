@@ -1,0 +1,46 @@
+A N G U L A R
+-------------
+Starting point : uradjen backend za blog aplikaciju sa auth i post endpointima
+Frontend moze na mnogo nacina (spring boot tajmleaf) ili obican mix ( html , css , javascript)
+Ja sam se opredelio za angular kao feontend fremvork ( za iole vece projekte treba koristiti fremvork)
+Instalisao sve potrebno : node , angularcli , za rad cu koristiti vs code
+
+Frontend Angular - Starting
+
+za pravljenje svega se koristi angular cli ( celog projekta , komponenti ...)
+prvo sam napravio projekat : ng new nazivprojekta ( napravice ga u folderu sa kojeg je pokrenuta komanda - ja koristim postojeci)
+folder back projekta i tu pravim frontend imena springblogfrontend - sve je vec pod gitom pa moze odmah rad
+post se pri pravljenju projekta pravi i gitignore , a ja ga vec imam sve sam iskopirao u stari gitignore ( tu se cuva sta neide na git )
+ako pri pravljenju ima nekih problema kad napravi odes u folder projekta pa npm audit fix --force da sve sredi (uglavnom dependecije)
+kad smo gotovi ceo angular projekat je u folderu sa imenom projekta 
+sve informacije su u package.json ( svi dependeciji - slicno kao pom.xml u back spring boot)
+sad u vs code radimo na back kao i dosad , a kad hocemo na frontend odemo u terminalu na springblogfrontend i tu radimo na frontu
+startujemo projekat sa ng serve , cime je dostupan u brovseru da vidimo kako radi na localhost port 4200
+
+prvo cemo instalisati bootstrap - odemo na folder projekta pa u terminalu npm i --save bootstrap
+kad sam ovo instalisao odmah se i bootstrap pojavio kao dependeci u package.json.
+mislim da je jos bolje odmah u index.html dodati link do bootstrapa na cdn pa se nemora nista instalisati - tako sam pre, ali sad ovako
+
+sad krecemo da pravimo komponente u angularu sa ng g c header (ng je komanda , g je generate , c je component , header je naziv)
+ovako se inace sve pravi nemoraju samo komponente , mogu servisi , pipe , ....
+
+sad se redovno radi i sve sto treba objasnjavati je u odgovarajucim fajlovima objasnjeno 
+
+angular pravi single page app tj. sve se stavlja u index.html ( sta i kako kasnije)
+styles.css je za globalne stilove - vaze u celoj app ( tu samo neke osnovne stvari - vidi u fajlu)
+main.ts startuje celu app slicno kao sto ima u spring boot ( tu nista nediram )
+assets folder je za staticke fajlove za app npr. slike i slicno
+ostalo uglavnom ne dirati - sve radi automatski
+
+angular aplikacija u app folderu ima 6 fajlova :
+app.module.ts uglavnom sluzi za deklarisanje svega sto se koristi ( aplikacija moze imati i vise modula - ali ja cu sada samo jedan)
+npr kad napravimo novu komponentu ( header ) mora se deklarisati u app.module.ts ( angularcli to automatski uradi kad pravim komponentu)
+app-routing.module.ts je kao gornje ali za rutiranje tu se sve u vezi rutiranja deklarise ( to je pitao pri pravljenju app ) pa ga imam
+automatski , moglo je i naknadno da se doda , ali obicno svaka app ima rutiranje
+app.component 4 fajla ( ts , html , css i test) se automatski pravi kad se pravi app . svaka buduca komponenta koju napravimo ce 
+takodje imat ta cetiri fajla. u ts fajlu je za svaku komponentu definisano ono glavno selektor ( kad se negde stavi selektor komponente -
+tu se umece ta komponenta , sa izgledom definisanim u templeteurl i stilovima iz stylesurl). vidi se da je selector ove prve komponente
+app-root , a u index.html se vidi da se app-root umece u stranicu i tako to ide, mi napravimo komponentu, dizajniramo je i stavimo je 
+gde dodje. sva biznis logika i sva dinamika komponente se pise u ts ( typescript ) fajlu ( usavrsena verzija javascript).
+neki elementi kao npr. servisi imaju samo ts fajl tj. nemaju vidljive html, css jer im netrebaju
+u spec.ts fajlovima se pisu testovi za komponente ( to kasnije - sad nije tema )
