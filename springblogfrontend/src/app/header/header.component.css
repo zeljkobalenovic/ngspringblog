@@ -9,7 +9,7 @@
     
 }
 
-.login , .register , .new-post  {
+.login , .register , .new-post , .logout {
     color: aliceblue;
     text-decoration: none;
     padding: 10px;

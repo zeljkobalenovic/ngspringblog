@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { HttpClientInterceptor } from './http-client-interceptor';
+import { PostComponent } from './post/post.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -26,7 +28,8 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     LoginComponent,
     RegisterSuccessComponent,
     HomeComponent,
-    AddpostComponent
+    AddpostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -34,27 +37,15 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     FormsModule,
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
-    /*
-    RouterModule.forRoot([
-      { path: 'register', component:RegisterComponent }, 
-      { path: 'login', component:LoginComponent },
-      { path: 'register-success', component:RegisterSuccessComponent },
-      { path: 'home' , component:HomeComponent },
-      { path: 'addpost' , component:AddpostComponent },              
-    ]
-    ),*/
-
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'register', component: RegisterComponent},      
+      {path: 'register', component: RegisterComponent},   
+      {path: 'post/:id' , component: PostComponent},   
       {path: 'login', component: LoginComponent},
       {path: 'register-success', component: RegisterSuccessComponent},
       {path: 'home', component: HomeComponent},
-      {path: 'addpost', component: AddpostComponent}
+      {path: 'addpost', component: AddpostComponent , canActivate: [AuthGuard]}
     ]),
-
-
-
     HttpClientModule,
     EditorModule
   ],
