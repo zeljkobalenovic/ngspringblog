@@ -9,9 +9,11 @@
     
 }
 
-.login , .register {
+.login , .register , .new-post  {
     color: aliceblue;
     text-decoration: none;
     padding: 10px;
     float: right;
 }
+
+

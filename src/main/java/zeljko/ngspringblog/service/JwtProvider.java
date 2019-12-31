@@ -22,6 +22,10 @@ import io.jsonwebtoken.security.Keys;
 
     // ovaj deo ima na mom githubu u repo springsecurity objasnjeni svi jwt utilitiji 
     // tamo je koriscen obican string za sifrovanje , ova dole varijanta je bolja jer sama java daje key
+    // i tako moze biti problema jer korisniku generisemo jwt sa key i on ga koristi , ali sta ako se server
+    // restartuje - key se menja i validacija jwt ne prolazi. zato je prostije koristiti samo string secret key
+    // kao na repo springsecurity , a za production neke varijante keystore ( sa public i private key - komplikovanije ali pravo)
+    
     
     private Key key;
 

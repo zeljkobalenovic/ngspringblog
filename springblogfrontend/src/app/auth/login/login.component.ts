@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   loginPayload:LoginPayload;
 
-  constructor(private formBuilder:FormBuilder , private authService:AuthService , private router:Router , private localStorageService:LocalStorageService) {
+  constructor(private formBuilder:FormBuilder , private authService:AuthService , private router:Router , private localStorageService:LocalStorageService ) {
     this.loginForm=this.formBuilder.group(
       {
         username:'',
@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           this.localStorageService.store('authenticationToken', data.authenticationToken);
           this.localStorageService.store('username', data.username);                 
           console.log("Login successful");
+          this.router.navigateByUrl('/home');
       }, error => {
           console.log("Login failed")
       })   
